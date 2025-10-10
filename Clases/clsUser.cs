@@ -9,7 +9,6 @@ namespace ProyectoBD.POJO
     internal class clsUser
     {
 
-        private int id;
         private string nombre;
         private string apellidos;
         private string user;
@@ -19,22 +18,20 @@ namespace ProyectoBD.POJO
         private string telefono;
         private string fechaNacimiento;
 
-        public clsUser(string nombre, string apellidos, string user, string password, bool status, string correo, string telefono, string fechaNacimiento)
+        public clsUser()
         {
-            this.Nombre = nombre;
-            this.Apellidos = apellidos;
-            this.User = user;
-            this.Password = password;
-            this.Status = status;
-            this.Correo = correo;
-            this.Telefono = telefono;
-            this.FechaNacimiento = fechaNacimiento;
         }
 
-        public int Id
+        public clsUser(string nombre, string apellidos, string user, string password, bool status, string correo, string telefono, string fechaNacimiento)
         {
-            get { return id; }
-            set { id = value; }
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            this.user = user;
+            this.password = password;
+            this.status = status;
+            this.correo = correo;
+            this.telefono = telefono;
+            this.fechaNacimiento = fechaNacimiento;
         }
 
         public string Nombre

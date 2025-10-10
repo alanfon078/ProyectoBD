@@ -1,40 +1,129 @@
-﻿using ProyectoBD.POJO;
-using System;
+﻿using MySql.Data.MySqlClient;
+using ProyectoBD.POJO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 
 namespace ProyectoBD.Conexion
 {
-    internal class conexion
+    internal class Conexion
     {
-        bool AgregarUsuario(clsUser usuario)
+        // Método para establecer la conexión con la base de datos
+        public static MySqlConnection ObtenerConexion()
         {
-
-            /// CREAR LA CONEXIÓN, CONFIGURAR Y ABRIRLA
-            MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=ProyectoBD; user=root; pwd=root";
-           /* cn.Open();
-
-            /// AGREGAR EL REGISTRO A LA BASE DE DATOS
-            string strSQL = "insert into productos (clave, nombre, precio, foto)" +
-                " values (@Clave, @Nombre, @precio, @Foto)";
-            MySqlCommand comando = new MySqlCommand(strSQL, cn);
-            comando.Parameters.AddWithValue("Clave", usuario.Clave);
-            comando.Parameters.AddWithValue("Nombre", usuario.Nombre);
-            comando.Parameters.AddWithValue("Precio", usuario.Precio);
-            comando.Parameters.AddWithValue("Foto", usuario.Foto);
-            comando.ExecuteNonQuery();
-
-            /// FINALIZAMOS LA CONEXION CERRAMOS TODO
-            comando.Dispose();
-            cn.Close();
-            cn.Dispose();*/ 
-
-            return true;
+            MySqlConnection conexion = new MySqlConnection("server=localhost; database=ProyectoBD; user=root; pwd=root");
+            conexion.Open();
+            return conexion;
         }
 
+        /// <summary>
+        /// Verifica las credenciales del usuario en la base de datos.
+        /// </summary>
+        /// <param name="user">Nombre de usuario</param>
+        /// <param name="password">Contraseña sin encriptar</param>
+        /// <returns>True si el login es exitoso, False en caso contrario.</returns>
+        public bool Login(string user, string password)
+        {
+            bool loginExitoso = false;
+            try
+            {
+                using (MySqlConnection conexion = ObtenerConexion())
+                {
+                    string query = "SELECT COUNT(*) FROM user WHERE user = @user AND password = SHA2(@password, 256)";
+                    MySqlCommand comando = new MySqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@user", user);
+                    comando.Parameters.AddWithValue("@password", password);
+
+                    int count = Convert.ToInt32(comando.ExecuteScalar());
+
+                    if (count > 0)
+                    {
+                        loginExitoso = true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // Manejar la excepción (por ejemplo, mostrar un mensaje de error)
+                Console.WriteLine("Error de conexión: " + ex.Message);
+            }
+            return loginExitoso;
+        }
+
+        /// <summary>
+        /// Agrega un nuevo usuario a la base de datos.
+        /// </summary>
+        /// <param name="usuario">Objeto clsUser con los datos del nuevo usuario</param>
+        /// <returns>True si el registro es exitoso, False en caso contrario.</returns>
+        public bool RegistrarUsuario(clsUser usuario)
+        {
+            bool exito = false;
+            try
+            {
+                using (MySqlConnection conexion = ObtenerConexion())
+                {
+                    string query = @"INSERT INTO user (nombre, apellidos, user, password, status, correo, telefono, fechaNacimiento) 
+                                     VALUES (@nombre, @apellidos, @user, SHA2(@password, 256), @status, @correo, @telefono, @fechaNacimiento)";
+
+                    MySqlCommand comando = new MySqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                    comando.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
+                    comando.Parameters.AddWithValue("@user", usuario.User);
+                    comando.Parameters.AddWithValue("@password", usuario.Password);
+                    comando.Parameters.AddWithValue("@status", usuario.Status);
+                    comando.Parameters.AddWithValue("@correo", usuario.Correo);
+                    comando.Parameters.AddWithValue("@telefono", usuario.Telefono);
+                    comando.Parameters.AddWithValue("@fechaNacimiento", usuario.FechaNacimiento);
+
+                    int filasAfectadas = comando.ExecuteNonQuery();
+
+                    if (filasAfectadas > 0)
+                    {
+                        exito = true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error al registrar usuario: " + ex.Message);
+            }
+            return exito;
+        }
+
+        /// <summary>
+        /// Obtiene una lista de todos los usuarios registrados en la base de datos.
+        /// </summary>
+        /// <returns>Una lista de objetos clsUser.</returns>
+        public List<clsUser> ObtenerUsuarios()
+        {
+            List<clsUser> listaUsuarios = new List<clsUser>();
+            try
+            {
+                using (MySqlConnection conexion = ObtenerConexion())
+                {
+                    string query = "SELECT nombre, apellidos, user, status, correo, telefono, fechaNacimiento, fechaCreacion FROM user";
+                    MySqlCommand comando = new MySqlCommand(query, conexion);
+                    MySqlDataReader reader = comando.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        clsUser usuario = new clsUser
+                        {
+                            Nombre = reader.GetString("nombre"),
+                            Apellidos = reader.GetString("apellidos"),
+                            User = reader.GetString("user"),
+                            Status = reader.GetBoolean("status"),
+                            Correo = reader.GetString("correo"),
+                            Telefono = reader.GetString("telefono"),
+                            FechaNacimiento = reader.GetDateTime("fechaNacimiento").ToString("yyyy-MM-dd")
+                        };
+                        listaUsuarios.Add(usuario);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error al obtener usuarios: " + ex.Message);
+            }
+            return listaUsuarios;
+        }
     }
 }
