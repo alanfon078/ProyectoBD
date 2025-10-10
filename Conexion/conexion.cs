@@ -16,7 +16,7 @@ namespace ProyectoBD.Conexion
             /// CREAR LA CONEXIÓN, CONFIGURAR Y ABRIRLA
             MySqlConnection cn = new MySqlConnection();
             cn.ConnectionString = "server=localhost; database=ProyectoBD; user=root; pwd=root";
-            cn.Open();
+           /* cn.Open();
 
             /// AGREGAR EL REGISTRO A LA BASE DE DATOS
             string strSQL = "insert into productos (clave, nombre, precio, foto)" +
@@ -31,7 +31,7 @@ namespace ProyectoBD.Conexion
             /// FINALIZAMOS LA CONEXION CERRAMOS TODO
             comando.Dispose();
             cn.Close();
-            cn.Dispose();
+            cn.Dispose();*/ 
 
             return true;
         }
