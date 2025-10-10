@@ -4,8 +4,12 @@ using System.Collections.Generic;
 
 namespace ProyectoBD.Conexion
 {
-    internal class Conexion
+    internal class conection
     {
+        public conection()
+        {
+        }
+
         // Método para establecer la conexión con la base de datos
         public static MySqlConnection ObtenerConexion()
         {

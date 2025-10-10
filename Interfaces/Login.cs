@@ -1,6 +1,6 @@
-using ProyectoBD.POJO;
 using ProyectoBD.Conexion;
 using MySql.Data.MySqlClient;
+using ProyectoBD.Interfaces;
 
 namespace ProyectoBD
 {
@@ -20,7 +20,19 @@ namespace ProyectoBD
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            bool bLogin = false;
+            conection c = new conection();
+            bLogin = c.Login(txtUser.Text, txtPassword.Text);
 
+            if (bLogin)
+            {
+                Menu menu = new Menu();
+                menu.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuario y/o Contraseña Incorrectos");
+            }
         }
 
         /*private void btnGuardar_Click(object sender, EventArgs e)
