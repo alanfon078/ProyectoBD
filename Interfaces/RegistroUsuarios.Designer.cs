@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DateTimePicker dtpFechaNacimiento;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroUsuarios));
+            dtpFechaNacimiento = new DateTimePicker();
             lblRegistro = new Label();
             txtNombre = new TextBox();
             txtUser = new TextBox();
@@ -45,7 +45,6 @@
             label5 = new Label();
             btnRegresar = new Button();
             txtApellidos = new TextBox();
-            dtpFechaNacimiento = new DateTimePicker();
             SuspendLayout();
             // 
             // dtpFechaNacimiento

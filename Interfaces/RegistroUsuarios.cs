@@ -21,10 +21,6 @@ namespace ProyectoBD.Interfaces
 
         private void btnRegistrar_Click_1(object sender, EventArgs e)
         { 
-            
-            /*DateTime fechaSeleccionada2 = dtpFechaNacimiento.Value;
-            string fechaBD2 = fechaSeleccionada2.ToString("yyyy-MM-dd");
-            MessageBox.Show(fechaBD2);*/
             if (txtNombre.Text == "" || txtApellidos.Text == "" || txtUser.Text == "" || txtPassword.Text == "" || txtCorreo.Text == "" || txtTelefono.Text == "")
             {
                 MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -49,8 +45,6 @@ namespace ProyectoBD.Interfaces
 
             else
             {
-
-
 
                 DateTime fechaSeleccionada = dtpFechaNacimiento.Value;
                 string fechaBD = fechaSeleccionada.ToString("yyyy-MM-dd");
