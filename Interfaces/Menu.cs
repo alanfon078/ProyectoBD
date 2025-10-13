@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoBD.Clases;
+using ProyectoBD.Conexion;
 
 namespace ProyectoBD.Interfaces
 {
@@ -15,6 +17,13 @@ namespace ProyectoBD.Interfaces
         public Menu()
         {
             InitializeComponent();
+        }
+
+        public Menu(String s)
+        {
+            InitializeComponent();
+            lblUser.Text = s;
+
         }
     }
 }

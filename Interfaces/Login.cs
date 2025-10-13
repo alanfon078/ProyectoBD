@@ -1,5 +1,4 @@
 using ProyectoBD.Conexion;
-using MySql.Data.MySqlClient;
 using ProyectoBD.Interfaces;
 
 namespace ProyectoBD
@@ -26,7 +25,8 @@ namespace ProyectoBD
 
             if (bLogin)
             {
-                Menu menu = new Menu();
+                String s=txtUser.Text;
+                Menu menu = new Menu(s);
                 menu.Show();
             }
             else
@@ -34,27 +34,6 @@ namespace ProyectoBD
                 MessageBox.Show("Usuario y/o Contraseña Incorrectos");
             }
         }
-
-        /*private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            clsUser producto = new clsUser();
-            // LECTURA DE DATOS
-            producto.Clave = Convert.ToInt32(txtClave.Text);
-            producto.Nombre = txtNombre.Text;
-            producto.Precio = Convert.ToDouble(txtPrecio.Text);
-            producto.Foto = "foto" + producto.Clave + ".jpg";
-
-            // FUNCIONES DE VALIDACIÓN
-
-
-            // GUARDAR LA INFORMACIÓN
-            clsDaoProductos objProducto = new clsDaoProductos();
-            if (objProducto.AgregarUsuario(producto))
-            {
-                MessageBox.Show("Producto almacenado correctamente");
-            }
-
-        }*/
 
     }
 }

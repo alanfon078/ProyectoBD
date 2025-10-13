@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using ProyectoBD.POJO;
-using System.Collections.Generic;
+using ProyectoBD.Clases;
 
 namespace ProyectoBD.Conexion
 {

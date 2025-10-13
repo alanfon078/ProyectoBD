@@ -28,18 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
+            lblWelcome = new Label();
+            lblUser = new Label();
             SuspendLayout();
+            // 
+            // lblWelcome
+            // 
+            lblWelcome.AutoSize = true;
+            lblWelcome.BackColor = Color.Transparent;
+            lblWelcome.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcome.ForeColor = SystemColors.Window;
+            lblWelcome.Location = new Point(26, 28);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(124, 27);
+            lblWelcome.TabIndex = 0;
+            lblWelcome.Text = "Bienvenido:";
+            // 
+            // lblUser
+            // 
+            lblUser.AutoSize = true;
+            lblUser.BackColor = Color.Transparent;
+            lblUser.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUser.ForeColor = SystemColors.Window;
+            lblUser.Location = new Point(151, 28);
+            lblUser.Name = "lblUser";
+            lblUser.Size = new Size(0, 27);
+            lblUser.TabIndex = 1;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1131, 770);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1050, 661);
+            Controls.Add(lblUser);
+            Controls.Add(lblWelcome);
             Name = "Menu";
             Text = "Menu";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label lblWelcome;
+        private Label lblUser;
     }
 }

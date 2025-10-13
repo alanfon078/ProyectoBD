@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoBD.POJO
+namespace ProyectoBD.Clases
 {
     internal class clsUser
     {
