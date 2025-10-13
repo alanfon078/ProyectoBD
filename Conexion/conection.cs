@@ -63,15 +63,14 @@ namespace ProyectoBD.Conexion
             {
                 using (MySqlConnection conexion = ObtenerConexion())
                 {
-                    string query = @"INSERT INTO user (nombre, apellidos, user, password, status, correo, telefono, fechaNacimiento) 
-                                     VALUES (@nombre, @apellidos, @user, SHA2(@password, 256), @status, @correo, @telefono, @fechaNacimiento)";
+                    string query = @"INSERT INTO user (nombre, apellidos, user, password, correo, telefono, fechaNacimiento) 
+                                     VALUES (@nombre, @apellidos, @user, SHA2(@password, 256), @correo, @telefono, @fechaNacimiento)";
 
                     MySqlCommand comando = new MySqlCommand(query, conexion);
                     comando.Parameters.AddWithValue("@nombre", usuario.Nombre);
                     comando.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
                     comando.Parameters.AddWithValue("@user", usuario.User);
                     comando.Parameters.AddWithValue("@password", usuario.Password);
-                    comando.Parameters.AddWithValue("@status", usuario.Status);
                     comando.Parameters.AddWithValue("@correo", usuario.Correo);
                     comando.Parameters.AddWithValue("@telefono", usuario.Telefono);
                     comando.Parameters.AddWithValue("@fechaNacimiento", usuario.FechaNacimiento);

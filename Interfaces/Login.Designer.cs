@@ -34,6 +34,7 @@
             btnLogin = new Button();
             label1 = new Label();
             label2 = new Label();
+            btnSalir = new Button();
             SuspendLayout();
             // 
             // txtUser
@@ -95,6 +96,20 @@
             label2.TabIndex = 4;
             label2.Text = "Contraseña";
             // 
+            // btnSalir
+            // 
+            btnSalir.BackColor = Color.White;
+            btnSalir.BackgroundImageLayout = ImageLayout.None;
+            btnSalir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSalir.ForeColor = Color.Crimson;
+            btnSalir.Location = new Point(12, 372);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(116, 28);
+            btnSalir.TabIndex = 6;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -102,6 +117,7 @@
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(734, 412);
+            Controls.Add(btnSalir);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnLogin);
@@ -110,7 +126,6 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,5 +137,6 @@
         private Button btnLogin;
         private Label label1;
         private Label label2;
+        private Button btnSalir;
     }
 }

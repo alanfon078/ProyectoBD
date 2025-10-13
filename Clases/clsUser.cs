@@ -34,6 +34,17 @@ namespace ProyectoBD.Clases
             this.fechaNacimiento = fechaNacimiento;
         }
 
+        public clsUser(string nombre, string apellidos, string user, string password, string correo, string telefono, string fechaNacimiento)
+        {
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            this.user = user;
+            this.password = password;
+            this.correo = correo;
+            this.telefono = telefono;
+            this.fechaNacimiento = fechaNacimiento;
+        }
+
         public string Nombre
         {
             get { return nombre; }

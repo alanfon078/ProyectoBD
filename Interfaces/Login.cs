@@ -12,11 +12,6 @@ namespace ProyectoBD
 
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             bool bLogin = false;
@@ -25,15 +20,20 @@ namespace ProyectoBD
 
             if (bLogin)
             {
-                String s=txtUser.Text;
+                String s = txtUser.Text;
                 Menu menu = new Menu(s);
                 menu.Show();
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Usuario y/o Contraseña Incorrectos");
+                MessageBox.Show("Usuario y/o Contraseña Incorrectos", "Error al iniciar Sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
