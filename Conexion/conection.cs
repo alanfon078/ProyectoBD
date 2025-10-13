@@ -115,7 +115,8 @@ namespace ProyectoBD.Conexion
                             Status = reader.GetBoolean("status"),
                             Correo = reader.GetString("correo"),
                             Telefono = reader.GetString("telefono"),
-                            FechaNacimiento = reader.GetDateTime("fechaNacimiento").ToString("yyyy-MM-dd")
+                            FechaNacimiento = reader.GetDateTime("fechaNacimiento").ToString("yyyy-MM-dd"),
+                            FechaCreacion = reader.GetDateTime("fechaCreacion").ToString("yyyy-MM-dd HH:mm:ss") // Añadir esta línea
                         };
                         listaUsuarios.Add(usuario);
                     }
@@ -127,5 +128,33 @@ namespace ProyectoBD.Conexion
             }
             return listaUsuarios;
         }
+
+        public bool ValidarUsuario(string user)
+        {
+            bool UsuarioDisponible = true;
+            try
+            {
+                using (MySqlConnection conexion = ObtenerConexion())
+                {
+                    string query = "SELECT COUNT(*) FROM user WHERE user = @user";
+                    MySqlCommand comando = new MySqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@user", user);
+
+                    int count = Convert.ToInt32(comando.ExecuteScalar());
+
+                    if (count > 0)
+                    {
+                        UsuarioDisponible = false;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // Manejar la excepción (por ejemplo, mostrar un mensaje de error)
+                Console.WriteLine("Error de conexión: " + ex.Message);
+            }
+            return UsuarioDisponible;
+        }
+
     }
 }

@@ -17,6 +17,7 @@ namespace ProyectoBD.Clases
         private string correo;
         private string telefono;
         private string fechaNacimiento;
+        private string fechaCreacion;
 
         public clsUser()
         {
@@ -91,6 +92,12 @@ namespace ProyectoBD.Clases
         {
             get { return fechaNacimiento; }
             set { fechaNacimiento = value; }
+        }
+
+        public string FechaCreacion
+        {
+            get { return fechaCreacion; }
+            set { fechaCreacion = value; }
         }
 
     }

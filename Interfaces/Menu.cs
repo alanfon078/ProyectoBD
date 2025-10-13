@@ -48,7 +48,7 @@ namespace ProyectoBD.Interfaces
 
         private void btnVerUsuarios_Click(object sender, EventArgs e)
         {
-            VerUsuarios vu = new VerUsuarios();
+            VerUsuarios vu = new VerUsuarios(lblUser.Text);
             this.Hide();
             vu.Show();
         }

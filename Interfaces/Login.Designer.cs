@@ -96,14 +96,14 @@
             label2.TabIndex = 4;
             label2.Text = "Contraseña";
             // 
-            // btnSalir
+            // btnVolver
             // 
             btnSalir.BackColor = Color.White;
             btnSalir.BackgroundImageLayout = ImageLayout.None;
             btnSalir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.Crimson;
             btnSalir.Location = new Point(12, 372);
-            btnSalir.Name = "btnSalir";
+            btnSalir.Name = "btnVolver";
             btnSalir.Size = new Size(116, 28);
             btnSalir.TabIndex = 6;
             btnSalir.Text = "Salir";

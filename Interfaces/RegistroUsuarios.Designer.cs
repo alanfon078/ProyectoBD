@@ -45,6 +45,7 @@
             label5 = new Label();
             btnRegresar = new Button();
             txtApellidos = new TextBox();
+            chboxShowPassword = new CheckBox();
             SuspendLayout();
             // 
             // dtpFechaNacimiento
@@ -241,12 +242,27 @@
             txtApellidos.TabIndex = 2;
             txtApellidos.TextAlign = HorizontalAlignment.Center;
             // 
+            // chboxShowPassword
+            // 
+            chboxShowPassword.AutoSize = true;
+            chboxShowPassword.BackColor = Color.Transparent;
+            chboxShowPassword.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chboxShowPassword.ForeColor = SystemColors.Control;
+            chboxShowPassword.Location = new Point(899, 293);
+            chboxShowPassword.Name = "chboxShowPassword";
+            chboxShowPassword.Size = new Size(184, 27);
+            chboxShowPassword.TabIndex = 17;
+            chboxShowPassword.Text = "Mostrar Contraseña";
+            chboxShowPassword.UseVisualStyleBackColor = false;
+            chboxShowPassword.CheckedChanged += chboxShowPassword_CheckedChanged;
+            // 
             // RegistroUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1208, 672);
+            Controls.Add(chboxShowPassword);
             Controls.Add(btnRegresar);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -287,5 +303,6 @@
         private Label label5;
         private Button btnRegresar;
         private TextBox txtApellidos;
+        private CheckBox chboxShowPassword;
     }
 }

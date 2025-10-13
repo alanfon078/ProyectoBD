@@ -94,14 +94,14 @@
             btnCerrarSesion.UseVisualStyleBackColor = true;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
-            // btnSalir
+            // btnVolver
             // 
             btnSalir.BackColor = Color.White;
             btnSalir.BackgroundImageLayout = ImageLayout.None;
             btnSalir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.Crimson;
             btnSalir.Location = new Point(328, 12);
-            btnSalir.Name = "btnSalir";
+            btnSalir.Name = "btnVolver";
             btnSalir.Size = new Size(116, 28);
             btnSalir.TabIndex = 5;
             btnSalir.Text = "Salir";

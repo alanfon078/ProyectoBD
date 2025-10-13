@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoBD.Clases;
 
 namespace ProyectoBD.Interfaces
 {
@@ -20,32 +21,10 @@ namespace ProyectoBD.Interfaces
         }
 
         private void btnRegistrar_Click_1(object sender, EventArgs e)
-        { 
-            if (txtNombre.Text == "" || txtApellidos.Text == "" || txtUser.Text == "" || txtPassword.Text == "" || txtCorreo.Text == "" || txtTelefono.Text == "")
+        {
+            Validador v = new Validador();
+            if (v.validarRegistro(txtNombre.Text, txtApellidos.Text, txtUser.Text, txtPassword.Text, txtCorreo.Text, txtTelefono.Text))
             {
-                MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            else if (txtPassword.Text.Length < 8)
-            {
-                MessageBox.Show("La contraseña debe tener al menos 8 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (txtTelefono.Text.Length < 10 || !long.TryParse(txtTelefono.Text, out _))
-            {
-                MessageBox.Show("El número de teléfono debe tener al menos 10 dígitos y contener solo números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!new Clases.Validador().ValidarCorreo(txtCorreo.Text))
-            {
-                MessageBox.Show("El correo electrónico no tiene un formato válido o excede los 50 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!new Clases.Validador().ValidarContrasena(txtPassword.Text))
-            {
-                MessageBox.Show("La contraseña debe tener entre 8 y 256 caracteres, incluir al menos una letra mayúscula, un número y un carácter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            else
-            {
-
                 DateTime fechaSeleccionada = dtpFechaNacimiento.Value;
                 string fechaBD = fechaSeleccionada.ToString("yyyy-MM-dd");
 
@@ -67,6 +46,7 @@ namespace ProyectoBD.Interfaces
                     MessageBox.Show("Error al registrar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -74,6 +54,18 @@ namespace ProyectoBD.Interfaces
             Menu m = new Menu();
             m.Show();
             this.Hide();
+        }
+
+        private void chboxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chboxShowPassword.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }
