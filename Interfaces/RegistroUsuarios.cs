@@ -18,6 +18,7 @@ namespace ProyectoBD.Interfaces
         {
             InitializeComponent();
             dtpFechaNacimiento.Value = DateTime.Today;
+            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void btnRegistrar_Click_1(object sender, EventArgs e)

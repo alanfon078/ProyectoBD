@@ -72,10 +72,10 @@
             // 
             // txtNombre
             // 
-            txtNombre.BackColor = Color.White;
+            txtNombre.BackColor = Color.FromArgb(127, 127, 127);
             txtNombre.BorderStyle = BorderStyle.None;
             txtNombre.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtNombre.ForeColor = Color.Black;
+            txtNombre.ForeColor = Color.White;
             txtNombre.Location = new Point(312, 148);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(253, 27);
@@ -84,10 +84,10 @@
             // 
             // txtUser
             // 
-            txtUser.BackColor = Color.White;
+            txtUser.BackColor = Color.FromArgb(127, 127, 127);
             txtUser.BorderStyle = BorderStyle.None;
             txtUser.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtUser.ForeColor = Color.Black;
+            txtUser.ForeColor = Color.White;
             txtUser.Location = new Point(312, 217);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(561, 27);
@@ -96,10 +96,10 @@
             // 
             // txtPassword
             // 
-            txtPassword.BackColor = Color.White;
+            txtPassword.BackColor = Color.FromArgb(127, 127, 127);
             txtPassword.BorderStyle = BorderStyle.None;
             txtPassword.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtPassword.ForeColor = Color.Black;
+            txtPassword.ForeColor = Color.White;
             txtPassword.Location = new Point(312, 287);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(561, 27);
@@ -108,10 +108,10 @@
             // 
             // txtCorreo
             // 
-            txtCorreo.BackColor = Color.White;
+            txtCorreo.BackColor = Color.FromArgb(127, 127, 127);
             txtCorreo.BorderStyle = BorderStyle.None;
             txtCorreo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtCorreo.ForeColor = Color.Black;
+            txtCorreo.ForeColor = Color.White;
             txtCorreo.Location = new Point(312, 355);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(561, 27);
@@ -120,10 +120,10 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.BackColor = Color.White;
+            txtTelefono.BackColor = Color.FromArgb(127, 127, 127);
             txtTelefono.BorderStyle = BorderStyle.None;
             txtTelefono.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtTelefono.ForeColor = Color.Black;
+            txtTelefono.ForeColor = Color.White;
             txtTelefono.Location = new Point(312, 425);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(561, 27);
@@ -232,10 +232,10 @@
             // 
             // txtApellidos
             // 
-            txtApellidos.BackColor = Color.White;
+            txtApellidos.BackColor = Color.FromArgb(127, 127, 127);
             txtApellidos.BorderStyle = BorderStyle.None;
             txtApellidos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtApellidos.ForeColor = Color.Black;
+            txtApellidos.ForeColor = Color.White;
             txtApellidos.Location = new Point(620, 148);
             txtApellidos.Name = "txtApellidos";
             txtApellidos.Size = new Size(253, 27);
