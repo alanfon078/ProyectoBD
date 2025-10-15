@@ -13,5 +13,5 @@ create table user(
     fechaNacimiento date not null
     );
 insert into user(nombre, apellidos, user, password, correo, telefono, fechaNacimiento) 
-values('Alan Yael', 'Fonseca Ruiz', 'Admin', sha2('Blackops078.', 256), 'yalan078@gmail.com','4451011393', '2005-12-30');
+values('Alan Yael', 'Fonseca Ruiz', 'Admin', sha2('Admin078.', 256), 'correo@gmail.com','4451234567', '2005-12-30');
 select * from user;
