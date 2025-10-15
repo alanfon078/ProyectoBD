@@ -49,8 +49,8 @@ namespace ProyectoBD.Interfaces
                 item.SubItems.Add(usuario.Apellidos);
                 item.SubItems.Add(usuario.Correo);
                 item.SubItems.Add(usuario.Status ? "Activo" : "Inactivo");
-                item.SubItems.Add(usuario.FechaNacimiento); // Añadir fecha de nacimiento
-                item.SubItems.Add(usuario.FechaCreacion); // Añadir fecha de creación
+                item.SubItems.Add(usuario.FechaNacimiento);
+                item.SubItems.Add(usuario.FechaCreacion); 
                 listViewUsuarios.Items.Add(item);
             }
         }
